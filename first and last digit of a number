@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int n;
+    printf("Enter a number\n");
+    scanf("%d", &n);
+
+    
+    if (n < 10) {
+        printf("Result: %d\n", n);
+        return 0;
+    }
+
+   
+    int temp = n;
+    int digits = 0;
+    while (temp > 0) {
+        digits++;
+        temp /= 10;
+    }
+
+    
+    int powerOf10 = (int)pow(10, digits - 1); 
+
+    int firstDigit = n / powerOf10;          
+    int lastDigit = n % 10;                  
+
+   
+    int middlePart = n % powerOf10;          
+    middlePart = middlePart / 10;            
+
+    int swappedNum = (lastDigit * powerOf10) + (middlePart * 10) + firstDigit;
+
+    printf("Result: %d\n", swappedNum);
+
+    return 0;
+}
